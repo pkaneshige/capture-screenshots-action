@@ -1,0 +1,8 @@
+{
+  "name": "capture-screenshots-action",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:pkaneshige/capture-screenshots-action.git",
+  "author": "Pace Kaneshige <pwtkaneshige@gmail.com>",
+  "license": "MIT"
+}
