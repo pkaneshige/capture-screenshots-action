@@ -1,34 +1,32 @@
-name: Capture Screenshot
-author: Pace Kaneshige
-description: Use Puppeteer to capture a screenshot from a URL.
+name: "Capture Screenshot"
+author: "Pace Kaneshige"
+description: "Use Puppeteer to capture a screenshot from a URL."
 inputs:
-  url:
-    description: URL to capture
+  source:
+    description: "Source of the content to be captured, may be a URL or HTML content"
     required: true
-    default: ""
   destination:
-    description: Where to save your screenshot
+    description: "The destination filename the captured website will be written to"
     required: false
-    default: "./screenshot.jpg"
+    default: "screenshot.png"
+  delay:
+    description: "The number of seconds to wait after the page finished loading before capturing the screenshot"
+    required: false
+    default: "0"
+  full-page:
+    description: "Capture the full scrollable page, not just the viewport"
+    required: false
+    default: "false"
   width:
-    description: "Page width to capture (default: 1280px)"
+    description: "Page width"
     required: false
     default: "1280"
-branding:
-  icon: camera
-  color: blue
+outputs:
+  path:
+    description: "The filesystem path to the website screenshot"
 runs:
-  using: composite
-  steps:
-    - name: Install capture-website-cli
-      shell: bash
-      run: |
-        echo "Installing dependencies ..."
-        npm install --global capture-website-cli 1> /dev/null
-        echo "Dependencies installed successfully"
-
-    - name: Capture Screenshots
-      shell: bash
-      run: |
-        capture-website ${{ inputs.url }} --scale-factor=2 --timeout=60 --delay=10 --ouput=${{ inputs.destination }} --width=${{ inputs.width }}
-        echo "Screenshot captured"
+  using: "node12"
+  main: "dist/index.js"
+branding:
+  icon: "camera"
+  color: "blue"
