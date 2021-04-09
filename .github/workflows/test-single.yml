@@ -17,7 +17,7 @@ jobs:
         id: screenshot
         uses: ./
         with:
-          source: https://buy.getpeaktoday.com/overview/
+          source: https://buy.getpeaktoday.com/overview
           destination: github-com-pkaneshige-screenshot-website-${{ matrix.os }}-${{ matrix.width }}.png
           full-page: true
           width: ${{ matrix.width }}
