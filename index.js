@@ -2,7 +2,7 @@ const path = require('path');
 const captureWebsite = require('capture-website');
 const core = require('@actions/core');
 const artifact = require('@actions/artifact');
-const loadInputs = require('./lib/which-chrome');
+const loadInputs = require('./lib/load-inputs');
 const whichChrome = require('./lib/which-chrome');
 
 async function run() {
@@ -24,7 +24,9 @@ async function run() {
     // Options for capture
     const options = {
       launchOptions: {
-        executablePath
+        ignoreDefaultArgs: true,
+        executablePath,
+        noSandbox: true,
       },
       ...inputs
     };

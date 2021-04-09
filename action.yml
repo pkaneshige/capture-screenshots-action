@@ -26,7 +26,7 @@ outputs:
     description: "The filesystem path to the website screenshot"
 runs:
   using: "node12"
-  main: "dist/index.js"
+  main: "../dist/index.js"
 branding:
   icon: "camera"
   color: "blue"
