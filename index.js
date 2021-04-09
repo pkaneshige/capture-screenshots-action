@@ -24,9 +24,7 @@ async function run() {
     // Options for capture
     const options = {
       launchOptions: {
-        ignoreDefaultArgs: true,
-        executablePath,
-        noSandbox: true,
+        executablePath
       },
       ...inputs
     };
